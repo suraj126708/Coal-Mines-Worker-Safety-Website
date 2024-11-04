@@ -4,8 +4,7 @@
 import NavBar from "../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../utils";
 
 function LoginPage({ isAuthorised }) {
