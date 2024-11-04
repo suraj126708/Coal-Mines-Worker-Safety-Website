@@ -9,7 +9,7 @@ const TokenAuthMiddleware = (req, res, next) => {
     return res.status(401).json({ message: "Access token required" });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+  jwt.verify(token, "suraj6708", (err, decoded) => {
     if (err) {
       return res.status(401).json({ message: "Invalid token" });
     }

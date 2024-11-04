@@ -54,23 +54,16 @@ function RegisterPage() {
       handleError("Name is required.");
     }
 
-    // Email validation
     if (!formData.email.trim()) {
       handleError("Email is required.");
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       handleError("Email address is invalid.");
     }
 
-    // Password validation
     if (!formData.password) {
       handleError("Password is required.");
     } else if (formData.password.length < 6) {
       handleError("Password must be at least 6 characters long.");
-    }
-
-    // Confirm Password validation
-    if (formData.password !== formData.confirmPassword) {
-      handleError("Passwords do not match.");
     }
 
     if (!formData.contact.trim()) {

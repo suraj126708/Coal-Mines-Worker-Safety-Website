@@ -70,7 +70,7 @@ const Attendance = ({ setIsAuthorised }) => {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:8080/attendance/mark",
+        "https://coal-mines-worker-safety-website-api.vercel.app/attendance/mark",
         {
           presence,
           problem,
