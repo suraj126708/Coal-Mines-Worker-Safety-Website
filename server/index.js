@@ -18,6 +18,7 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 
 app.use(cors());
+app.use(cors({ origin: "https://your-frontend-url.vercel.app" }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/auth", AuthRouter);
