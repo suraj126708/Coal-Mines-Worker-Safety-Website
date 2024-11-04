@@ -46,12 +46,15 @@ const ProfilePage = ({ isAuthorised }) => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch("http://localhost:8080/userinfo", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await fetch(
+          "https://coal-mines-worker-safety-website-api.vercel.app/userinfo",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch user details");
@@ -67,7 +70,8 @@ const ProfilePage = ({ isAuthorised }) => {
     fetchUserDetails();
   }, []);
 
-  const BASE_URL = "http://localhost:8080/uploads/";
+  const BASE_URL =
+    "https://coal-mines-worker-safety-website-api.vercel.app/uploads/";
   const filename = localStorage.getItem("profilePicture")?.split("\\").pop();
   const profilepic = filename ? `${BASE_URL}${filename}` : null;
 

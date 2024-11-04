@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const path = require("path");
 
+require("dotenv").config();
+
 // Sign Up Controller
 const signUp = async (req, res) => {
   try {
@@ -68,7 +70,7 @@ const login = async (req, res) => {
 
     const jwtToken = jwt.sign(
       { email: user.email, _id: user._id },
-      "suraj6708",
+      process.env.JWT_SECRET,
       { expiresIn: "24h" }
     );
 

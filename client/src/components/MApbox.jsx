@@ -15,12 +15,15 @@ const MapboxMap = () => {
   useEffect(() => {
     const fetchUserLocation = async () => {
       try {
-        const response = await fetch("http://localhost:8080/workers/location", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await fetch(
+          "https://coal-mines-worker-safety-website-api.vercel.app/workers/location",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch user details");

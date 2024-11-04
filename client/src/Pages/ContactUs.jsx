@@ -18,11 +18,14 @@ export default function ContactUs({ isAuthorised }) {
     setErrorMessage("");
 
     try {
-      const response = await axios.post("http://localhost:8080/contact", {
-        name,
-        email,
-        message,
-      });
+      const response = await axios.post(
+        "https://coal-mines-worker-safety-website-api.vercel.app/contact",
+        {
+          name,
+          email,
+          message,
+        }
+      );
 
       setResponseMessage(response.data.message);
       handleSuccess(response.data.message);

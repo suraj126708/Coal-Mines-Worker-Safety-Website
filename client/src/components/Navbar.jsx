@@ -4,7 +4,8 @@ import { useState } from "react";
 import NavbarAnchor from "./NavbarAnchor";
 import { useNavigate } from "react-router-dom";
 
-const BASE_URL = "http://localhost:8080/uploads/";
+const BASE_URL =
+  "https://coal-mines-worker-safety-website-api.vercel.app/uploads/";
 
 const NavBar = ({ id, isAuthorised }) => {
   const [isOpen, setIsOpen] = useState(false);

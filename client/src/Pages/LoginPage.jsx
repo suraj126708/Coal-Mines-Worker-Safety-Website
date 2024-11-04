@@ -21,7 +21,8 @@ function LoginPage({ isAuthorised }) {
     setErrors(null); // Clear previous errors
 
     try {
-      const url = "http://localhost:8080/auth/login";
+      const url =
+        "https://coal-mines-worker-safety-website-api.vercel.app/auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {

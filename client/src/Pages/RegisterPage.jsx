@@ -112,7 +112,8 @@ function RegisterPage() {
 
     setLoading(true);
 
-    const url = "http://localhost:8080/auth/signup";
+    const url =
+      "https://coal-mines-worker-safety-website-api.vercel.app/auth/signup";
 
     // Create FormData object
     const formDataToSend = new FormData();
