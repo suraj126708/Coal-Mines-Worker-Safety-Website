@@ -17,7 +17,6 @@ const NavBar = ({ id, isAuthorised }) => {
   // Extract the filename from localStorage and create the full URL
   const filename = localStorage.getItem("profilePicture")?.split("\\").pop();
   const profilepic = filename ? `${BASE_URL}${filename}` : null;
-  console.log(profilepic);
 
   const navigate = useNavigate();
 

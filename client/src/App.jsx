@@ -82,7 +82,6 @@ function App() {
         />
         <Route path="/about" element={<About isAuthorised={isAuthorised} />} />
       </Routes>
-      <ToastContainer />
     </BrowserRouter>
   );
 }
