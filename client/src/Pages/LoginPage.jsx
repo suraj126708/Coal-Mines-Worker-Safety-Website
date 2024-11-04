@@ -32,7 +32,7 @@ function LoginPage({ isAuthorised }) {
       });
 
       const result = await response.json();
-      console.log(result);
+      console.log("Server response:", result); // Log the response for debugging
 
       if (!response.ok) {
         // Handle error response
@@ -43,8 +43,10 @@ function LoginPage({ isAuthorised }) {
       }
 
       const { token: jwtToken, user } = result;
-      if (user) {
-        const { name, profilePicture } = user;
+
+      if (jwtToken && user) {
+        // Assume `user` object is expected with name and profilePicture
+        const { name = "Guest", profilePicture } = user;
         handleSuccess("Login successful!");
 
         localStorage.setItem("token", jwtToken);
@@ -59,10 +61,10 @@ function LoginPage({ isAuthorised }) {
           navigate("/");
         }, 1000);
       } else {
-        throw new Error("User data not found in response.");
+        setErrors({ apiError: "Invalid login response structure." });
+        handleError("Login response did not contain user data.");
       }
     } catch (err) {
-      // Handle any unexpected errors
       const errorMessage = err.message || "An unexpected error occurred.";
       setErrors({ apiError: errorMessage });
       handleError(errorMessage);
