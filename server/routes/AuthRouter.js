@@ -1,4 +1,4 @@
-const { signUp, login } = require("../controllers/authController"); // Make sure the path is correct
+const { signUp, login } = require("../controllers/AuthController");
 const {
   signUpValidation,
   loginValidation,
