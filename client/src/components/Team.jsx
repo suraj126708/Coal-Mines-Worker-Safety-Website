@@ -8,7 +8,7 @@ const Team = () => {
       description:
         "Add your detail description here. Lorem ipsum dolor sit amet.",
       imageUrl:
-        "https://media.licdn.com/dms/image/v2/D4D03AQGdvKNChcnspw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727688634417?e=1733961600&v=beta&t=P5nG5fnGNkjY9YWSrpedDDCnQPhUraEj9J_vbGaB3gI",
+        "https://media.licdn.com/dms/image/v2/D4D03AQFPzZ429dRNoQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730815963701?e=1736380800&v=beta&t=j35AaVuQBb96tKX5vd-CD5t1nz4OflmrOVcQ8ejdUg0",
     },
     {
       name: "Dev Jangam",
