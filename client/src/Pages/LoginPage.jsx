@@ -4,7 +4,6 @@
 import NavBar from "../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../utils";
 
 function LoginPage({ isAuthorised }) {
@@ -57,9 +56,9 @@ function LoginPage({ isAuthorised }) {
             "https://flowbite.com/docs/images/people/profile-picture-3.jpg"
         );
 
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        if (!loading) {
+          setTimeout(() => navigate("/"), 1000);
+        }
       } else {
         setErrors({ apiError: "Invalid login response structure." });
         handleError("Login response did not contain user data.");
@@ -138,7 +137,6 @@ function LoginPage({ isAuthorised }) {
               </Link>
             </p>
           </div>
-          <ToastContainer />
         </div>
       </div>
     </>
