@@ -227,11 +227,3 @@ textarea {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
-
-nav {
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.backdrop-blur-lg {
-  backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
-}

@@ -47,11 +47,3 @@ table {
   display: flex;
   animation: scroll 20s linear infinite;
 }
-
-nav {
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.backdrop-blur-lg {
-  backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
-}
