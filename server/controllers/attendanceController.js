@@ -5,7 +5,6 @@ exports.markAttendance = async (req, res) => {
     console.log(req.body);
     const { presence, problem, additionalProblem, location } = req.body;
 
-    // Validate location
     if (
       !location ||
       typeof location.lat === "undefined" ||
@@ -16,7 +15,6 @@ exports.markAttendance = async (req, res) => {
         .json({ error: "Invalid or missing location data" });
     }
 
-    // Get today's date
     const today = new Date();
     const startOfDay = new Date(
       today.getFullYear(),
@@ -29,7 +27,6 @@ exports.markAttendance = async (req, res) => {
       today.getDate() + 1
     );
 
-    // Check if attendance is already recorded for today
     const user = await User.findById(req.userId);
     if (!user) return res.status(404).json({ error: "User not found" });
 
@@ -44,7 +41,6 @@ exports.markAttendance = async (req, res) => {
         .json({ error: "Attendance already marked for today." });
     }
 
-    // Create attendance record
     const attendanceRecord = {
       presence,
       problem,
@@ -56,7 +52,6 @@ exports.markAttendance = async (req, res) => {
       date: new Date(),
     };
 
-    // Update user attendance
     const updatedUser = await User.findByIdAndUpdate(
       req.userId,
       { $push: { attendance: attendanceRecord } },

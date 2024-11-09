@@ -17,7 +17,7 @@ function LoginPage({ isAuthorised }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setErrors(null); // Clear previous errors
+    setErrors(null);
 
     try {
       const url =
@@ -29,16 +29,17 @@ function LoginPage({ isAuthorised }) {
         },
         body: JSON.stringify({ email, password }),
       });
-
+      console.log(response);
       const result = await response.json();
-      console.log("Server response:", result); // Log the response for debugging
+      console.log("Server response:", result);
 
       if (!response.ok) {
-        // Handle error response
         const errorMessage = result.message || "Login failed";
         setErrors({ apiError: errorMessage });
         handleError(errorMessage);
-        return; // Exit early on error
+        console.log(errorMessage);
+        const textResult = await response.text();
+        return;
       }
 
       const { token: jwtToken, user } = result;
@@ -67,6 +68,7 @@ function LoginPage({ isAuthorised }) {
       const errorMessage = err.message || "An unexpected error occurred.";
       setErrors({ apiError: errorMessage });
       handleError(errorMessage);
+      console.log(errorMessage);
     } finally {
       setLoading(false);
     }

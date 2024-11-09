@@ -77,7 +77,7 @@ const ProfilePage = ({ isAuthorised }) => {
 
   if (!userDetails)
     return (
-      <div className="ml-[50%] mt-[50%] font-serif font-semibold text-2xl">
+      <div className="h-[100vh] w-[100%] text-center pt-64 font-serif font-semibold text-2xl">
         Loading...
       </div>
     );
