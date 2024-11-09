@@ -35,6 +35,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ToastContainer />
       <RefreshHandler setIsAuthorised={setIsAuthorised} />
       <Routes>
         <Route

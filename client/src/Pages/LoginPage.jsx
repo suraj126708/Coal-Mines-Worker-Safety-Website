@@ -76,7 +76,7 @@ function LoginPage({ isAuthorised }) {
 
   return (
     <>
-      <NavBar id="black" isAuthorised={"isAuthorised"} />
+      <NavBar id="black" isAuthorised={isAuthorised} />
       <div className="h-[100vh] flex items-center justify-center">
         <div className="bg-slate-50 bg-opacity-60 p-8 rounded shadow-md w-full max-w-md">
           <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
