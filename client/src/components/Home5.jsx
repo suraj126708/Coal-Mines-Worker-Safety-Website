@@ -2,9 +2,7 @@
 const WorkerOfTheMonth = ({ user }) => {
   return (
     <div className="bg-gray-100 flex flex-col items-center justify-center my-5 text-gray-800">
-      <h1 className="text-4xl font-bold text-black mb-6">
-        Worker of the Month
-      </h1>
+      <h1 className="text-4xl font-bold text-black mb-6">Wrker of the Month</h1>
 
       <div className="bg-white shadow-lg rounded-lg p-8 w-4/5 md:w-2/3 lg:w-1/2">
         <div className="flex flex-col items-center text-center">

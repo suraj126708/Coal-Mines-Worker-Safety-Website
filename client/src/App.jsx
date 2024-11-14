@@ -50,7 +50,7 @@ function App() {
         />
         <Route
           path="/login"
-          element={<LoginPage setIsAuthorised={setIsAuthorised} />}
+          element={<LoginPage isAuthorised={isAuthorised} />}
         />
 
         <Route
