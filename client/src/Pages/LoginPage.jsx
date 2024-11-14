@@ -26,25 +26,24 @@ function LoginPage({ isAuthorised }) {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({ email, password }),
       });
-      console.log(response);
+
       const result = await response.json();
       console.log("Server response:", result);
 
       if (!response.ok) {
-        const errorMessage = result.message || "Login failed";
+        const errorMessage = result?.message || "Login failed";
         setErrors({ apiError: errorMessage });
         handleError(errorMessage);
         console.log(errorMessage);
-        const textResult = await response.text();
         return;
       }
 
       const { token: jwtToken, user } = result;
 
       if (jwtToken && user) {
-        // Assume `user` object is expected with name and profilePicture
         const { name = "Guest", profilePicture } = user;
         handleSuccess("Login successful!");
 
@@ -56,9 +55,7 @@ function LoginPage({ isAuthorised }) {
             "https://flowbite.com/docs/images/people/profile-picture-3.jpg"
         );
 
-        if (!loading) {
-          setTimeout(() => navigate("/"), 1000);
-        }
+        setTimeout(() => navigate("/"), 1000); // Navigate with a delay
       } else {
         setErrors({ apiError: "Invalid login response structure." });
         handleError("Login response did not contain user data.");
