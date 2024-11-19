@@ -19,22 +19,22 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-// const allowedOrigins = [
-//   "https://coal-mines-worker-safety-website-ui.vercel.app",
-// ];
+const allowedOrigins = [
+  "https://coal-mines-worker-safety-website-ui.vercel.app",
+];
 
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       if (!origin || allowedOrigins.includes(origin)) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
@@ -43,6 +43,10 @@ app.use("/userinfo", ProductsRouter);
 app.use("/attendance", attendanceRoutes);
 app.use("/contact", ContactRoute);
 app.use("/workers", workerRoute);
+
+app.get("/ping", (req, res) => {
+  res.send("PONG");
+});
 
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
